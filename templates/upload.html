@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. George Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        form {
+            text-align: center;
+        }
+        input[type="file"] {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #325634;
+        }
+        .message {
+            margin-top: 20px;
+            text-align: center;
+            color: #333;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: #3722c0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>St. George Detection</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".jpg, .jpeg, .png">
+            <br><br>
+            <input type="submit" value="Upload">
+        </form>
+        {% if message %}
+        <p class="message">{{ message }}</p>
+        {% endif %}
+        {% if result %}
+        <div class="result">
+            <h2>Result:</h2>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
